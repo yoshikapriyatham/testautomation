@@ -1,22 +1,38 @@
 ---
   - name: softwares installation
-    hosts: jenkinsnodes
+    hosts: "{{ jenkinsnodes }}"
+    become: yes
     tasks: 
       - name: java installation
         yum:
-          name: java
+          name: java-1.8.0-openjdk
           state: present
           
-      - name: ensure java is running
-        service:
-          name: java
+      - name: Download Long Term Jenkins release
+        get_url:
+          url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+          dest: /etc/yum.repos.d/jenkins.repo
+
+      - name: Import jenkins key from url
+        ansible.builtin.rpm_key:
           state: present
-          
-      - name: jenkins installation
+          key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+      - name: yum update
+        yum:
+          name: '*'
+          state: latest
+        
+      - name: Install jenkins
         yum:
           name: jenkins
-          state: present
-      - name: java installation
-        service:
+          state: latest
+
+      - name: daemon-reload to pick up config changes
+        ansible.builtin.systemd:
+          daemon_reload: yes
+
+      - name: Start jenkins
+        ansible.builtin.systemd:
           name: jenkins
-          state: present
+          state: started
