@@ -1,6 +1,6 @@
 ---
   - name: softwares installation
-    hosts: jenkinsnodes
+    hosts: all
     become: yes
     tasks: 
       - name: java installation
