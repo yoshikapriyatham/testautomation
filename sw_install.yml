@@ -32,7 +32,9 @@
         ansible.builtin.systemd:
           daemon_reload: yes
 
+      #- name: Start jenkins
+      #  ansible.builtin.systemd:
+      #    service: jenkins
+      #    state: started
       - name: Start jenkins
-        ansible.builtin.systemd:
-          service: jenkins
-          state: started
+        service: name=jenkins state=started enabled=yes
