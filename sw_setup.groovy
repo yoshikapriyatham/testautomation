@@ -24,7 +24,7 @@ pipeline{
                         } 
                         }*/
                     
-                    ansiColor('xterm') {
+                    script {
                     ansiblePlaybook(
                         playbook: './sw_install.yml',
                         credentialsId: 'node_creds',
