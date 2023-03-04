@@ -11,7 +11,7 @@ pipeline{
         }
         stage('git checkout'){
             steps{
-             git branch: 'main', credentialsId: 'anusha_git_creds', url: 'ssh://git@bitbucket.org:company/repo.git'
+             git branch: 'main', credentialsId: 'anusha_git_creds', url: 'https://github.com/yoshikapriyatham/testautomation.git'
             }
             
         }
