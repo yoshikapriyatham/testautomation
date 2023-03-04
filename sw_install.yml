@@ -1,6 +1,6 @@
 ---
   - name: softwares installation
-    hosts: "{{ jenkinsnodes }}"
+    hosts: jenkinsnodes
     become: yes
     tasks: 
       - name: java installation
