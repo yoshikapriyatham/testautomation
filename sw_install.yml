@@ -1,0 +1,22 @@
+---
+  - name: softwares installation
+    hosts: jenkinsnodes
+    tasks: 
+      - name: java installation
+        yum:
+          name: java
+          state: present
+          
+      - name: ensure java is running
+        service:
+          name: java
+          state: present
+          
+      - name: jenkins installation
+        yum:
+          name: jenkins
+          state: present
+      - name: java installation
+        service:
+          name: jenkins
+          state: present
