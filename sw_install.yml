@@ -34,5 +34,5 @@
 
       - name: Start jenkins
         ansible.builtin.systemd:
-          name: jenkins
+          service: jenkins
           state: started
