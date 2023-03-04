@@ -17,9 +17,13 @@ pipeline{
         }
         stage('Build'){
             steps{
-              script{
-               sh " ansible-playbook sw_install.yml"
-            }  
+                withCredentials([sshUserPrivateKey(credentialsId: 'node_creds', keyFileVariable: 'private_key', usernameVariable: 'user_name')]) {
+                    script{
+                        sh " ansible-playbook sw_install.yml"
+                            
+                        }  
+                    }
+            
             }
             
         }
