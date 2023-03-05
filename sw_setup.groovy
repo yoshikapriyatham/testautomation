@@ -22,7 +22,7 @@ pipeline{
                         //sh " ansible-playbook sw_install.yml disableHostKeyChecking: true"
                           sh """
                           export ANSIBLE_HOST_KEY_CHECKING=False
-                          ansible-playbook sw_install.yml 
+                          ansible-playbook credentialsId: 'node_creds' sw_install.yml 
                           """
                         } 
                         }
