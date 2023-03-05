@@ -4,8 +4,9 @@
     become: yes
     tasks: 
       - name: java installation
-        yum:
-          name: amazon-linux-extras java-1.8.0-openjdk
+        shell: yum install amazon-linux-extras java-1.8.0-openjdk
+        #yum:
+        #  name: amazon-linux-extras java-1.8.0-openjdk
           state: present
           
       - name: Download Long Term Jenkins release
