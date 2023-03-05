@@ -19,8 +19,8 @@ pipeline{
             steps{
                 withCredentials([sshUserPrivateKey(credentialsId: 'node_creds', keyFileVariable: 'private_key', usernameVariable: 'user_name')]) {
                     script{
-                        sh " ansible-playbook sw_install.yml disableHostKeyChecking: true"
-                            
+                        //sh " ansible-playbook sw_install.yml disableHostKeyChecking: true"
+                          sh " ansible-playbook sw_install.yml  StrictHostKeyChecking=no "
                         } 
                         }
                     
