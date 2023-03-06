@@ -34,7 +34,7 @@ pipeline{
                     
                     script {
                     ansiblePlaybook(
-                        playbook: './sw_install.yml',
+                        playbook: './node_space_clean.yml',
                         credentialsId: 'node_creds',
                         disableHostKeyChecking: true,
                         colorized: true)
