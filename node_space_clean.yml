@@ -10,12 +10,12 @@
           
       - name: deleting message logs
         file:
-          path: /var/log/mess*
+          path: /var/log/messages
           state: absent
           
-      - name: deleting maillog logs
+      - name: deleting messages previuos logs
         file:
-          path: /var/log/boot.log-20230228
+          path: /var/log/messages-20230305
           state: absent
           
       - name: get timestamp
@@ -24,4 +24,4 @@
         
       - name: print time
         debug:
-          msg: "{{ time_cur }}"
+          msg: "{{ time_cur.stdout }}"
