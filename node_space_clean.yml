@@ -5,17 +5,17 @@
     tasks:        
       - name: deleting audit logs
         file:
-          path: /var/log/audit/*
+          path: /var/log/audit/audi*
           state: absent
           
       - name: deleting message logs
         file:
-          path: /var/log/messages*
+          path: /var/log/mess*
           state: absent
           
       - name: deleting maillog logs
         file:
-          path: /var/log/maillog*
+          path: /var/log/mail*
           state: absent
           
       - name: print timestamp
