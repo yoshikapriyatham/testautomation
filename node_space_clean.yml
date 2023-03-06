@@ -5,10 +5,15 @@
     tasks:        
       - name: deleting audit logs
         file:
-          path: /var/log/audit/audit.log.*
+          path: /var/log/audit/*
           state: absent
           
-      - name: deleting audit logs
+      - name: deleting message logs
         file:
-          path: /var/log/messages-*
+          path: /var/log/messages*
+          state: absent
+          
+      - name: deleting maillog logs
+        file:
+          path: /var/log/maillog*
           state: absent
