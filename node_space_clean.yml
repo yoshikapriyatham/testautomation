@@ -15,8 +15,13 @@
           
       - name: deleting maillog logs
         file:
-          path: /var/log/mail*
+          path: /var/log/boot.log-20230228
           state: absent
           
-      - name: print timestamp
+      - name: get timestamp
         shell: date
+        register: time_cur
+        
+      - name: print time
+        debug:
+          msg: "{{ time_cur }}"
