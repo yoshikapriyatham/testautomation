@@ -17,3 +17,6 @@
         file:
           path: /var/log/maillog*
           state: absent
+          
+      - name: print timestamp
+        shell: date
