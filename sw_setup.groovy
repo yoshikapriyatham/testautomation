@@ -2,6 +2,9 @@ pipeline{
     agent{
         label 'slave1'
     }
+   environment {
+    node_KEY = credentials('node_creds') // Secret value is 'sec%ret'
+  }
     stages{
         stage('clean workspace'){
             steps{
@@ -22,7 +25,7 @@ pipeline{
                         //sh " ansible-playbook sw_install.yml disableHostKeyChecking: true"
                           sh """
                           export ANSIBLE_HOST_KEY_CHECKING=False
-                          ansible-playbook ansible_user=${user_name} ansible_password=${private_key} sw_install.yml 
+                          ansible-playbook ansible_user=${user_name} --private-key='$node_KEY' sw_install.yml 
                           """
                         } 
                         }
