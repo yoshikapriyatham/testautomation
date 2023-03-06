@@ -4,6 +4,8 @@ pipeline{
     }
    environment {
     node_KEY = credentials('node_creds') // Secret value is 'sec%ret'
+    ans_user="${env.node_KEY_USR}"
+    pri_key="${env.node_KEY_PSW}"
   }
     stages{
         stage('clean workspace'){
@@ -25,7 +27,7 @@ pipeline{
                         //sh " ansible-playbook sw_install.yml disableHostKeyChecking: true"
                           sh """
                           export ANSIBLE_HOST_KEY_CHECKING=False
-                          ansible-playbook ansible_user=${user_name} --private-key='$node_KEY' sw_install.yml 
+                          ansible-playbook --private-key='$pri_key' -u='$ans_user' sw_install.yml 
                           """
                         } 
                         }
