@@ -3,8 +3,11 @@
     hosts: all
     become: yes
     tasks: 
+      - name: update the packages
+        shell: sudo yum update –y
+        
       - name: java installation
-        shell: sudo yum install amazon-linux-extras java-1.8.0-openjdk
+        shell: sudo amazon-linux-extras install java-openjdk11 -y
         #yum:
         #  name: amazon-linux-extras java-1.8.0-openjdk
         #  state: present
