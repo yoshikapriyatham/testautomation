@@ -7,7 +7,7 @@
         shell: yum install amazon-linux-extras java-1.8.0-openjdk
         #yum:
         #  name: amazon-linux-extras java-1.8.0-openjdk
-          state: present
+        #  state: present
           
       - name: Download Long Term Jenkins release
         get_url:
