@@ -17,24 +17,24 @@ pipeline{
         }
         stage('Build'){
             steps{
-               /* withCredentials([sshUserPrivateKey(credentialsId: 'node_creds', keyFileVariable: 'private_key', usernameVariable: 'user_name')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'node_creds', keyFileVariable: 'private_key', usernameVariable: 'user_name')]) {
                     script{
                         //sh " ansible-playbook sw_install.yml disableHostKeyChecking: true"
                           sh """
                           export ANSIBLE_HOST_KEY_CHECKING=False
-                          ansible-playbook credentialsId: 'node_creds' sw_install.yml 
+                          ansible-playbook ansible_user=${user_name} ansible_password=${private_key} sw_install.yml 
                           """
                         } 
-                        }*/
+                        }
                     
-                    script {
+                  /*  script {
                     ansiblePlaybook(
                         playbook: './sw_install.yml',
                         credentialsId: 'node_creds',
                         disableHostKeyChecking: true,
                         colorized: true)
                 
-                    }
+                    }*/
             
             }
             
