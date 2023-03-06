@@ -1,0 +1,14 @@
+---
+  - name: space cleanup
+    hosts: all
+    become: yes
+    tasks:        
+      - name: deleting audit logs
+        file:
+          path: /var/log/audit/audit.log.*
+          state: absent
+          
+      - name: deleting audit logs
+        file:
+          path: /var/log/messages-*
+          state: absent
