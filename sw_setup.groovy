@@ -20,7 +20,7 @@ pipeline{
             }
             
         }
-        stage('Build'){
+        stage('software setup'){
             steps{
                /* withCredentials([sshUserPrivateKey(credentialsId: 'node_creds', keyFileVariable: 'private_key', usernameVariable: 'user_name')]) {
                     script{
