@@ -1,7 +1,7 @@
-json:
-/app/data1: 
-healthy: true
-/app/data2: 
-healthy: true
-/app/data3: 
-healthy: true
+healt = json:
+        /app/data1: 
+        healthy: true
+        /app/data2: 
+        healthy: true
+        /app/data3: 
+        healthy: true
