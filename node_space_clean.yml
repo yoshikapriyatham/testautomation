@@ -1,0 +1,27 @@
+---
+  - name: space cleanup
+    hosts: all
+    become: yes
+    tasks:        
+      - name: deleting audit logs
+        file:
+          path: /var/log/audit/audi*
+          state: absent
+          
+      - name: deleting message logs
+        file:
+          path: /var/log/messages
+          state: absent
+          
+      - name: deleting messages previuos logs
+        file:
+          path: /var/log/messages-20230305
+          state: absent
+          
+      - name: get timestamp
+        shell: date
+        register: time_cur
+        
+      - name: print time
+        debug:
+          msg: "{{ time_cur.stdout }}"
