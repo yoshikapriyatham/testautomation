@@ -34,7 +34,7 @@ pipeline{
                     
                     script {
                     ansiblePlaybook(
-                        playbook: './node_space_clean.yml',
+                        playbook: './json_frm.yml',
                         credentialsId: 'node_creds',
                         disableHostKeyChecking: true,
                         colorized: true)
