@@ -1,0 +1,13 @@
+---
+- name: print variables
+  hosts: all
+  become: true
+  tasks:
+    - name: get the vars
+      register:
+        heal: "{{ healt }}"
+        
+    - name: get the vars
+      debug:
+        msg: "{{ heal }}"
+    
